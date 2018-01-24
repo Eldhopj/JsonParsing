@@ -70,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
             if (!Objects.equals(s, "Something went Wrong")) {
                 try {
                     JSONObject jsonObject = new JSONObject(s);
+                    Log.i("visibility", jsonObject.getString("visibility"));
+                    
+                    JSONObject main = jsonObject.getJSONObject("main");
+                    Log.i("Pressure",main.getString("pressure"));
+                    
                     String whetherInfo = jsonObject.getString("weather");
                     JSONArray array = new JSONArray(whetherInfo);
                     for (int i = 0; i < array.length(); i++) {
